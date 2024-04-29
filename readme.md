@@ -1,6 +1,6 @@
 # Quantum Mechanical Keyboard Firmware
 
-This is my personal fork
+This is my personal fork of QMK, hosting my personal keymaps
 
 ## QMK
 QMK is maintained in the [QMK Github repository](https://github.com/qmk/qmk_firmware).
@@ -12,6 +12,7 @@ Here are custom keymaps that were built for my personal use. Most of them are ru
 ### Corne (3x6)
 
 * [Burgundy Dev](/keyboards/crkbd/keymaps/burgundy_dev): Currently running this keymap
+* [Zagreb](/keyboards/crkbd/keymaps/zagreb): Experimental keymap to match functionality with my latest [ZMK-based](https://github.com/jrtex/zmk-config-sweep) minimal keymap.
 
 ### Keebio Nyquist
 
