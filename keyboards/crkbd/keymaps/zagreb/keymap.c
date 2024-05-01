@@ -25,8 +25,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define CTRL_C LCTL_T(KC_C)
 #define SHFT_D LSFT_T(KC_D)
 #define SHFT_H RSFT_T(KC_H)
-#define CTRL_CM RALT_T(KC_COMM)
-#define ALT_DOT RCTL_T(KC_DOT)
+#define CTRL_CM RCTL_T(KC_COMM)
+#define ALT_DOT RALT_T(KC_DOT)
 #define GUI_SLS RGUI_T(KC_SLSH)
 #define SHFTFUN LT(3, OSM(MOD_LSFT))
 
@@ -36,23 +36,27 @@ const uint16_t PROGMEM combo_dash[] = {KC_N, KC_E, COMBO_END};
 const uint16_t PROGMEM combo_coln[] = {KC_N, KC_I, COMBO_END};
 const uint16_t PROGMEM combo_squo[] = {KC_E, KC_I, COMBO_END};
 const uint16_t PROGMEM combo_dquo[] = {KC_I, KC_O, COMBO_END};
-const uint16_t PROGMEM combo_undr[] = {KC_M, KC_E, COMBO_END};
+const uint16_t PROGMEM combo_undr[] = {KC_M, KC_N, COMBO_END};
 
 const uint16_t PROGMEM combo_excl[] = {KC_L, KC_U, COMBO_END};
 const uint16_t PROGMEM combo_qust[] = {KC_U, KC_Y, COMBO_END};
 const uint16_t PROGMEM combo_semi[] = {KC_L, KC_Y, COMBO_END};
 const uint16_t PROGMEM combo_tild[] = {KC_J, KC_L, COMBO_END};
 
-const uint16_t PROGMEM combo_lsqb[] = {KC_H, KC_E, COMBO_END};
-const uint16_t PROGMEM combo_rsqb[] = {KC_E, KC_DOT, COMBO_END};
+const uint16_t PROGMEM combo_lsqb[] = {SHFT_H, KC_E, COMBO_END};
+const uint16_t PROGMEM combo_rsqb[] = {KC_E, ALT_DOT, COMBO_END};
 const uint16_t PROGMEM combo_lcrb[] = {KC_N, KC_U, COMBO_END};
 const uint16_t PROGMEM combo_rcrb[] = {KC_U, KC_I, COMBO_END};
 const uint16_t PROGMEM combo_pipe[] = {KC_J, KC_M, COMBO_END};
 
+const uint16_t PROGMEM combo_plus[] = {KC_L, KC_U, KC_Y, COMBO_END};
+const uint16_t PROGMEM combo_equa[] = {KC_N, KC_E, KC_I, COMBO_END};
+
 // Left Hand
 const uint16_t PROGMEM combo_escp[] = {KC_W, KC_F, COMBO_END};
-const uint16_t PROGMEM combo_copy[] = {KC_X, KC_C, COMBO_END};
-const uint16_t PROGMEM combo_past[] = {KC_C, KC_D, COMBO_END};
+const uint16_t PROGMEM combo_sall[] = {KC_A, KC_R, COMBO_END};
+const uint16_t PROGMEM combo_copy[] = {ALT_X, CTRL_C, COMBO_END};
+const uint16_t PROGMEM combo_past[] = {CTRL_C, SHFT_D, COMBO_END};
 
 // Combos Definition:
 combo_t key_combos[] = {
@@ -61,6 +65,7 @@ combo_t key_combos[] = {
     COMBO(combo_coln, KC_COLN),
     COMBO(combo_squo, KC_QUOT),
     COMBO(combo_dquo, KC_DQT),
+    COMBO(combo_undr, KC_UNDS),
 
     COMBO(combo_excl, KC_EXLM),
     COMBO(combo_qust, KC_QUES),
@@ -73,8 +78,11 @@ combo_t key_combos[] = {
     COMBO(combo_rcrb, KC_RCBR),
     COMBO(combo_pipe, KC_PIPE),
 
+    COMBO(combo_plus, KC_PLUS),
+    COMBO(combo_equa, KC_EQL),
     // left hand
     COMBO(combo_escp, KC_ESC),
+    COMBO(combo_sall, LCTL(KC_A)),
     COMBO(combo_copy, LCTL(KC_C)),
     COMBO(combo_past, LCTL(KC_V)),
 };
