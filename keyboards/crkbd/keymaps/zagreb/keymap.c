@@ -55,9 +55,12 @@ const uint16_t PROGMEM combo_equa[] = {KC_N, KC_E, KC_I, COMBO_END};
 // Left Hand
 const uint16_t PROGMEM combo_escp[] = {KC_W, KC_F, COMBO_END};
 const uint16_t PROGMEM combo_sall[] = {KC_A, KC_R, COMBO_END};
+const uint16_t PROGMEM combo_delw[] = {KC_R, KC_S, KC_T, COMBO_END};
 const uint16_t PROGMEM combo_copy[] = {ALT_X, CTRL_C, COMBO_END};
 const uint16_t PROGMEM combo_past[] = {CTRL_C, SHFT_D, COMBO_END};
 
+// Two hands
+const uint16_t PROGMEM combo_capw[] = {KC_D, KC_H, COMBO_END};
 // Combos Definition:
 combo_t key_combos[] = {
     // right hand
@@ -83,8 +86,11 @@ combo_t key_combos[] = {
     // left hand
     COMBO(combo_escp, KC_ESC),
     COMBO(combo_sall, LCTL(KC_A)),
+    COMBO(combo_delw, LCTL(KC_BSPC)),
     COMBO(combo_copy, LCTL(KC_C)),
     COMBO(combo_past, LCTL(KC_V)),
+    // two hands
+    COMBO(combo_capw, CW_TOGG),
 };
 
 
