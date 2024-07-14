@@ -3,13 +3,10 @@
 
 #include QMK_KEYBOARD_H
 
-// Each layer gets a name for readability, which is then used in the keymap matrix below.
-// The underscores don't mean anything - you can have a layer called STUFF or any other name.
-// Layer names don't all need to be of the same length, obviously, and you can also skip them
-// entirely and just use numbers.
 enum layer_names {
     _COLEMAK,
     _LOWER,
+    _NAVI,
     _RAISE,
     _ADJUST
 };
@@ -17,8 +14,82 @@ enum layer_names {
 enum custom_keycodes {
   COLEMAK = SAFE_RANGE,
   LOWER,
+  NAVI,
   RAISE,
   ADJUST,
+};
+
+// homerow mods & special key
+#define GUI_Z LGUI(KC_Z)
+#define ALT_X LGUI(KC_X)
+#define CTL_C LGUI(KC_C)
+#define SFT_D LGUI(KC_D)
+#define SFT_H LGUI(KC_H)
+#define CTL_COM LGUI(KC_COMM)
+#define ALT_DOT LGUI(KC_DOT)
+#define GUI_SLS LGUI(KC_SLSH)
+
+#define NUM_TAB LT(1, KC_TAB)
+#define NAV_SPC LT(2, KC_SPC)
+#define SFT_FUN LT(3, OSM(MOD_LSFT))
+#define W_PRE C(KC_LEFT)
+#define W_NXT C(KC_RGHT)
+
+// Combos
+const uint16_t PROGMEM combo_dash[] = {KC_N, KC_E, COMBO_END};
+const uint16_t PROGMEM combo_coln[] = {KC_N, KC_I, COMBO_END};
+const uint16_t PROGMEM combo_squo[] = {KC_E, KC_I, COMBO_END};
+const uint16_t PROGMEM combo_dquo[] = {KC_I, KC_O, COMBO_END};
+const uint16_t PROGMEM combo_undr[] = {KC_M, KC_N, COMBO_END};
+
+const uint16_t PROGMEM combo_excl[] = {KC_L, KC_U, COMBO_END};
+const uint16_t PROGMEM combo_qust[] = {KC_U, KC_Y, COMBO_END};
+const uint16_t PROGMEM combo_semi[] = {KC_L, KC_Y, COMBO_END};
+const uint16_t PROGMEM combo_tild[] = {KC_J, KC_L, COMBO_END};
+const uint16_t PROGMEM combo_bquo[] = {KC_Y, KC_SCLN, COMBO_END};
+
+const uint16_t PROGMEM combo_lsqb[] = {KC_H, KC_E, COMBO_END};
+const uint16_t PROGMEM combo_rsqb[] = {KC_E, KC_DOT, COMBO_END};
+const uint16_t PROGMEM combo_lcrb[] = {KC_N, KC_U, COMBO_END};
+const uint16_t PROGMEM combo_rcrb[] = {KC_U, KC_I, COMBO_END};
+const uint16_t PROGMEM combo_pipe[] = {KC_M, KC_J, COMBO_END};
+
+// Left hand
+
+const uint16_t PROGMEM combo_copy[] = {KC_X, KC_C, COMBO_END};
+const uint16_t PROGMEM combo_past[] = {KC_C, KC_V, COMBO_END};
+// const uint16_t PROGMEM combo_cut[]  = {KC_N, KC_E, COMBO_END};
+
+const uint16_t PROGMEM combo_all[]  = {KC_A, KC_R, COMBO_END};
+const uint16_t PROGMEM combo_bspc[] = {KC_R, KC_S, COMBO_END};
+const uint16_t PROGMEM combo_del[]  = {KC_S, KC_T, COMBO_END};
+const uint16_t PROGMEM combo_delw[] = {KC_N, KC_E, COMBO_END};
+
+// Combos Definitions
+combo_t key_combos[] = {
+    COMBO(combo_dash, KC_MINS),
+    COMBO(combo_coln, KC_COLN),
+    COMBO(combo_squo, KC_QUOT),
+    COMBO(combo_dquo, KC_DQT),
+    COMBO(combo_undr, KC_UNDS),
+
+    COMBO(combo_excl, KC_EXLM),
+    COMBO(combo_qust, KC_QUES),
+    COMBO(combo_semi, KC_SCLN),
+    COMBO(combo_tild, KC_TILD),
+    COMBO(combo_bquo, KC_GRV),
+
+    COMBO(combo_lsqb, KC_LBRC),
+    COMBO(combo_rsqb, KC_RBRC),
+    COMBO(combo_lcrb, KC_LCBR),
+    COMBO(combo_rcrb, KC_RCBR),
+
+    COMBO(combo_copy, LCTL(KC_C)),
+    COMBO(combo_past, LCTL(KC_V)),
+    COMBO(combo_all,  LCTL(KC_A)),
+    COMBO(combo_bspc, KC_BSPC),
+    COMBO(combo_del,  KC_DEL),
+    COMBO(combo_delw, LCTL(KC_BSPC)),
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -38,73 +109,42 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_COLEMAK] = LAYOUT_ortho_5x12(
-  KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC,
+  KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC,
   KC_TAB,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,    KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_DEL,
   KC_ESC,  KC_A,    KC_R,    KC_S,    KC_T,    KC_G,    KC_M,    KC_N,    KC_E,    KC_I,    KC_O,    KC_QUOT,
-  KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,    KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT ,
-  ADJUST,  KC_LCTL, KC_LALT, KC_LGUI, LOWER,   KC_SPC,  KC_SPC,  RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
+  KC_LSFT, GUI_Z,   ALT_X,   CTL_C,   SFT_D,   KC_V,    KC_K,    SFT_H,   CTL_COM, ALT_DOT, GUI_SLS, KC_RSFT,
+  ADJUST,  KC_LGUI, KC_LALT, KC_LCTL, NUM_TAB, NAV_SPC, KC_ENT,  SFT_FUN, KC_RCTL, KC_RALT, KC_RGUI, KC_RGHT
 ),
 
-    /* Lower
- * ,-----------------------------------------------------------------------------------.
- * |   ~  |   !  |   @  |   #  |   $  |   %  |   ^  |   &  |   *  |   (  |   )  | Bksp |
- * |------+------+------+------+------+-------------+------+------+------+------+------|
- * |   ~  |   !  |   @  |   #  |   $  |   %  |   ^  |   &  |   *  |   (  |   )  | Del  |
- * |------+------+------+------+------+-------------+------+------+------+------+------|
- * | Del  |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |   _  |   +  |     |    \  |  |   |
- * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |  F7  |  F8  |  F9  |  F10 |  F11 |  F12 |ISO ~ |ISO | | Home | End  |      |
- * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      |      |      |             |      | Next | Vol- | Vol+ | Play |
- * `-----------------------------------------------------------------------------------'
- */
 [_LOWER] = LAYOUT_ortho_5x12(
-  KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_BSPC,
-  KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_DEL,
-  KC_DEL,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE,
-  BL_STEP, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,S(KC_NUHS),S(KC_NUBS),KC_HOME,KC_END, _______,
-  _______, _______, _______, _______, _______, _______, _______, _______, KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY
-),
-
-/* Raise
- * ,-----------------------------------------------------------------------------------.
- * |   `  |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |   0  | Bksp |
- * |------+------+------+------+------+-------------+------+------+------+------+------|
- * |   `  |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |   0  | Del  |
- * |------+------+------+------+------+-------------+------+------+------+------+------|
- * | Del  |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |   -  |   =  |   [  |   ]  |  \   |
- * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |  F7  |  F8  |  F9  |  F10 |  F11 |  F12 |ISO # |ISO / |Pg Up |Pg Dn |      |
- * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      |      |      |             |      | Next | Vol- | Vol+ | Play |
- * `-----------------------------------------------------------------------------------'
- */
-[_RAISE] = LAYOUT_ortho_5x12(
-  KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC,
-  KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_DEL,
-  KC_DEL,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_BSLS,
-  _______, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_NUHS, KC_NUBS, KC_PGUP, KC_PGDN, _______,
-  _______, _______, _______, _______, _______, _______, _______, _______, KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY
-),
-
-/* Adjust (Lower + Raise)
- * ,-----------------------------------------------------------------------------------.
- * |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |  F7  |  F8  |  F9  |  F10 |  F11 |  F12 |
- * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      | Reset|RGB Tg|RGB Md|Hue Up|Hue Dn|Sat Up|Sat Dn|Val Up|Val Dn|      |  Del |
- * |------+------+------+------+------+-------------+------+------+------+------+------|
- * |      |      |      |Aud on|Audoff|AGnorm|AGswap|Qwerty|Colemk|Dvorak|      |      |
- * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |      |      |      |      |      |      |      |      |      |      |      |
- * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      |      |      |             |      |      |      |      |      |
- * `-----------------------------------------------------------------------------------'
- */
-[_ADJUST] =  LAYOUT_ortho_5x12(
-  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,
-  _______, QK_BOOT, RGB_TOG, RGB_MOD, RGB_HUD, RGB_HUI, RGB_SAD, RGB_SAI, RGB_VAD, RGB_VAI, _______, KC_DEL,
-  _______, _______, _______, AU_ON,   AU_OFF,  AG_NORM, AG_SWAP, QWERTY,  COLEMAK, DVORAK,  _______, _______,
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+  KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_DEL,
+  KC_DEL,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_PIPE,
+  BL_STEP, _______, _______, _______, KC_5,    KC_PERC, _______, _______, _______, _______, _______, _______,
+  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
+),
+
+[_NAVI] =  LAYOUT_ortho_5x12(
+  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+  _______, _______, W_PRE,   KC_UP,   W_NXT,   _______, _______, KC_INS,  KC_HOME, KC_PGUP, _______, _______,
+  _______, _______, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______, KC_DEL,  KC_END,  KC_PGDN, _______, _______,
+  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
+),
+
+[_RAISE] = LAYOUT_ortho_5x12(
+  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+  _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_BSLS,
+  _______, KC_F11,  KC_F12,  _______, _______, _______, _______, _______, _______, _______, _______, _______,
+  RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD, _______, _______, _______, RGB_HUI, RGB_SAI, RGB_VAI, _______, _______,
+  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
+),
+
+[_ADJUST] =  LAYOUT_ortho_5x12(
+  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+  _______, _______, _______, _______, _______, _______, _______, KC_MPRV, KC_MPLY, KC_MNXT, _______, _______,
+  _______, _______, _______, _______, _______, _______, _______, KC_VOLU, _______, KC_VOLD, _______, _______,
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
 )
 
