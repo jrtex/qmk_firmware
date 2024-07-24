@@ -20,14 +20,14 @@ enum custom_keycodes {
 };
 
 // homerow mods & special key
-#define GUI_Z LGUI(KC_Z)
-#define ALT_X LGUI(KC_X)
-#define CTL_C LGUI(KC_C)
-#define SFT_D LGUI(KC_D)
-#define SFT_H LGUI(KC_H)
-#define CTL_COM LGUI(KC_COMM)
-#define ALT_DOT LGUI(KC_DOT)
-#define GUI_SLS LGUI(KC_SLSH)
+#define GUI_Z LGUI_T(KC_Z)
+#define ALT_X LALT_T(KC_X)
+#define CTL_C LCTL_T(KC_C)
+#define SFT_D LSFT_T(KC_D)
+#define SFT_H RSFT_T(KC_H)
+#define CTL_COM RCTL_T(KC_COMM)
+#define ALT_DOT RALT_T(KC_DOT)
+#define GUI_SLS RGUI_T(KC_SLSH)
 
 #define NUM_TAB LT(1, KC_TAB)
 #define NAV_SPC LT(2, KC_SPC)
@@ -55,6 +55,8 @@ const uint16_t PROGMEM combo_rcrb[] = {KC_U, KC_I, COMBO_END};
 const uint16_t PROGMEM combo_pipe[] = {KC_M, KC_J, COMBO_END};
 
 // Left hand
+const uint16_t PROGMEM combo_clos[] = {KC_Q, KC_W, COMBO_END};
+const uint16_t PROGMEM combo_escp[] = {KC_W, KC_F, COMBO_END};
 
 const uint16_t PROGMEM combo_copy[] = {KC_X, KC_C, COMBO_END};
 const uint16_t PROGMEM combo_past[] = {KC_C, KC_V, COMBO_END};
@@ -83,6 +85,9 @@ combo_t key_combos[] = {
     COMBO(combo_rsqb, KC_RBRC),
     COMBO(combo_lcrb, KC_LCBR),
     COMBO(combo_rcrb, KC_RCBR),
+
+    COMBO(combo_clos, LCTL(KC_W)),
+    COMBO(combo_escp, KC_ESC),
 
     COMBO(combo_copy, LCTL(KC_C)),
     COMBO(combo_past, LCTL(KC_V)),
