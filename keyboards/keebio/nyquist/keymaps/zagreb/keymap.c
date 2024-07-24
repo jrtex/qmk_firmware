@@ -8,7 +8,8 @@ enum layer_names {
     _LOWER,
     _NAVI,
     _RAISE,
-    _ADJUST
+    _ADJUST,
+    _WM1
 };
 
 enum custom_keycodes {
@@ -17,6 +18,7 @@ enum custom_keycodes {
   NAVI,
   RAISE,
   ADJUST,
+  WM1,
 };
 
 // homerow mods & special key
@@ -151,8 +153,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, _______, _______, _______, _______, _______, _______, KC_MPRV, KC_MPLY, KC_MNXT, _______, _______,
   _______, _______, _______, _______, _______, _______, _______, KC_VOLU, _______, KC_VOLD, _______, _______,
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
-)
+),
 
+[_WM1] = LAYOUT_ortho_5x12(
+  LGUI(KC_ESC),  LGUI(KC_1),    LGUI(KC_2),    LGUI(KC_3),    LGUI(KC_4),    LGUI(KC_5),    LGUI(KC_6),    LGUI(KC_7),    LGUI(KC_8),    LGUI(KC_9),    LGUI(KC_0),    LGUI(KC_BSPC),
+  LGUI(KC_TAB),  LGUI(KC_Q),    LGUI(KC_W),    LGUI(KC_F),    LGUI(KC_P),    LGUI(KC_B),    LGUI(KC_J),    LGUI(KC_L),    LGUI(KC_U),    LGUI(KC_Y),    LGUI(KC_SCLN), LGUI(KC_DEL),
+  LGUI(KC_ESC),  LGUI(KC_A),    LGUI(KC_R),    LGUI(KC_S),    LGUI(KC_T),    LGUI(KC_G),    LGUI(KC_M),    LGUI(KC_N),    LGUI(KC_E),    LGUI(KC_I),    LGUI(KC_O),    LGUI(KC_QUOT),
+  LGUI(KC_LSFT), LGUI(KC_Z),    LGUI(KC_X),    LGUI(KC_C),    LGUI(KC_D),    LGUI(KC_V),    LGUI(KC_K),    LGUI(KC_H),    LGUI(KC_COMM), LGUI(KC_DOT),  LGUI(KC_SLSH), LGUI(KC_RSFT),
+  _______,  _______, _______, _______, _______, _______, _______,  _______, _______, _______, _______, _______
+),
 
 };
 
