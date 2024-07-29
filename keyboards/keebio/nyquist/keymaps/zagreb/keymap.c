@@ -43,12 +43,14 @@ const uint16_t PROGMEM combo_coln[] = {KC_N, KC_I, COMBO_END};
 const uint16_t PROGMEM combo_squo[] = {KC_E, KC_I, COMBO_END};
 const uint16_t PROGMEM combo_dquo[] = {KC_I, KC_O, COMBO_END};
 const uint16_t PROGMEM combo_undr[] = {KC_M, KC_N, COMBO_END};
+const uint16_t PROGMEM combo_equa[] = {KC_N, KC_E, KC_I, COMBO_END};
 
 const uint16_t PROGMEM combo_excl[] = {KC_L, KC_U, COMBO_END};
 const uint16_t PROGMEM combo_qust[] = {KC_U, KC_Y, COMBO_END};
 const uint16_t PROGMEM combo_semi[] = {KC_L, KC_Y, COMBO_END};
 const uint16_t PROGMEM combo_tild[] = {KC_J, KC_L, COMBO_END};
 const uint16_t PROGMEM combo_bquo[] = {KC_Y, KC_SCLN, COMBO_END};
+const uint16_t PROGMEM combo_plus[] = {KC_L, KC_U, KC_Y, COMBO_END};
 
 const uint16_t PROGMEM combo_lsqb[] = {KC_H, KC_E, COMBO_END};
 const uint16_t PROGMEM combo_rsqb[] = {KC_E, KC_DOT, COMBO_END};
@@ -67,7 +69,7 @@ const uint16_t PROGMEM combo_past[] = {KC_C, KC_V, COMBO_END};
 const uint16_t PROGMEM combo_all[]  = {KC_A, KC_R, COMBO_END};
 const uint16_t PROGMEM combo_bspc[] = {KC_R, KC_S, COMBO_END};
 const uint16_t PROGMEM combo_del[]  = {KC_S, KC_T, COMBO_END};
-const uint16_t PROGMEM combo_delw[] = {KC_N, KC_E, COMBO_END};
+const uint16_t PROGMEM combo_delw[] = {KC_R, KC_S, KC_T, COMBO_END};
 
 // Combos Definitions
 combo_t key_combos[] = {
@@ -76,17 +78,20 @@ combo_t key_combos[] = {
     COMBO(combo_squo, KC_QUOT),
     COMBO(combo_dquo, KC_DQT),
     COMBO(combo_undr, KC_UNDS),
+    COMBO(combo_equa, KC_EQL),
 
     COMBO(combo_excl, KC_EXLM),
     COMBO(combo_qust, KC_QUES),
     COMBO(combo_semi, KC_SCLN),
     COMBO(combo_tild, KC_TILD),
     COMBO(combo_bquo, KC_GRV),
+    COMBO(combo_plus, KC_PLUS),
 
     COMBO(combo_lsqb, KC_LBRC),
     COMBO(combo_rsqb, KC_RBRC),
     COMBO(combo_lcrb, KC_LCBR),
     COMBO(combo_rcrb, KC_RCBR),
+    COMBO(combo_pipe, KC_PIPE),
 
     COMBO(combo_clos, LCTL(KC_W)),
     COMBO(combo_escp, KC_ESC),
@@ -220,3 +225,31 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
     [_ADJUST] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) }
 };
 #endif
+
+layer_state_t layer_state_set_user(layer_state_t state) {
+    switch (get_highest_layer(state)) {
+        case _COLEMAK:
+            rgblight_sethsv(HSV_YELLOW);
+            break;
+        case _LOWER:
+            rgblight_sethsv(HSV_RED);
+            break;
+        case _NAVI:
+            rgblight_sethsv(HSV_BLUE);
+            break;
+        case _RAISE:
+            rgblight_sethsv(HSV_PINK);
+            break;
+        case _ADJUST:
+            rgblight_sethsv(HSV_PURPLE);
+            break;
+        case _WM1:
+            rgblight_sethsv(HSV_ORANGE);
+            break;
+        default:
+            rgblight_sethsv(HSV_CYAN);
+            break;
+        }
+    return state;
+}
+
