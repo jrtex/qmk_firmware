@@ -123,14 +123,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_COLEMAK] = LAYOUT_ortho_5x12(
   KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC,
-  KC_TAB,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,    KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_DEL,
+  KC_TAB,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,    KC_J,    KC_L,    KC_U,    KC_Y,    KC_BSPC, KC_BSPC,
   KC_ESC,  KC_A,    KC_R,    KC_S,    KC_T,    KC_G,    KC_M,    KC_N,    KC_E,    KC_I,    KC_O,    KC_QUOT,
   KC_LSFT, GUI_Z,   ALT_X,   CTL_C,   SFT_D,   KC_V,    KC_K,    SFT_H,   CTL_COM, ALT_DOT, GUI_SLS, KC_RSFT,
   ADJUST,  KC_LGUI, KC_LALT, KC_LCTL, NUM_TAB, NAV_SPC, ENT_WM1, SFT_FUN, KC_RCTL, KC_RALT, KC_RGUI, KC_RGHT
 ),
 
 [_LOWER] = LAYOUT_ortho_5x12(
-  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_DEL,
   KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_DEL,
   KC_DEL,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_PIPE,
   BL_STEP, _______, _______, _______, KC_5,    KC_PERC, _______, _______, _______, _______, _______, _______,
