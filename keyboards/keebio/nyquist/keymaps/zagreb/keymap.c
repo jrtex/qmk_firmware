@@ -34,6 +34,7 @@ enum custom_keycodes {
 #define NUM_TAB LT(1, KC_TAB)
 #define NAV_SPC LT(2, KC_SPC)
 #define SFT_FUN LT(3, OSM(MOD_LSFT))
+#define ENT_WM1 LT(_WM1 , KC_ENT)
 #define W_PRE C(KC_LEFT)
 #define W_NXT C(KC_RGHT)
 
@@ -52,8 +53,8 @@ const uint16_t PROGMEM combo_tild[] = {KC_J, KC_L, COMBO_END};
 const uint16_t PROGMEM combo_bquo[] = {KC_Y, KC_SCLN, COMBO_END};
 const uint16_t PROGMEM combo_plus[] = {KC_L, KC_U, KC_Y, COMBO_END};
 
-const uint16_t PROGMEM combo_lsqb[] = {KC_H, KC_E, COMBO_END};
-const uint16_t PROGMEM combo_rsqb[] = {KC_E, KC_DOT, COMBO_END};
+const uint16_t PROGMEM combo_lsqb[] = {SFT_H, KC_E, COMBO_END};
+const uint16_t PROGMEM combo_rsqb[] = {KC_E, ALT_DOT, COMBO_END};
 const uint16_t PROGMEM combo_lcrb[] = {KC_N, KC_U, COMBO_END};
 const uint16_t PROGMEM combo_rcrb[] = {KC_U, KC_I, COMBO_END};
 const uint16_t PROGMEM combo_pipe[] = {KC_M, KC_J, COMBO_END};
@@ -125,7 +126,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TAB,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,    KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_DEL,
   KC_ESC,  KC_A,    KC_R,    KC_S,    KC_T,    KC_G,    KC_M,    KC_N,    KC_E,    KC_I,    KC_O,    KC_QUOT,
   KC_LSFT, GUI_Z,   ALT_X,   CTL_C,   SFT_D,   KC_V,    KC_K,    SFT_H,   CTL_COM, ALT_DOT, GUI_SLS, KC_RSFT,
-  ADJUST,  KC_LGUI, KC_LALT, KC_LCTL, NUM_TAB, NAV_SPC, KC_ENT,  SFT_FUN, KC_RCTL, KC_RALT, KC_RGUI, KC_RGHT
+  ADJUST,  KC_LGUI, KC_LALT, KC_LCTL, NUM_TAB, NAV_SPC, ENT_WM1, SFT_FUN, KC_RCTL, KC_RALT, KC_RGUI, KC_RGHT
 ),
 
 [_LOWER] = LAYOUT_ortho_5x12(
@@ -163,7 +164,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_WM1] = LAYOUT_ortho_5x12(
   LGUI(KC_ESC),  LGUI(KC_1),    LGUI(KC_2),    LGUI(KC_3),    LGUI(KC_4),    LGUI(KC_5),    LGUI(KC_6),    LGUI(KC_7),    LGUI(KC_8),    LGUI(KC_9),    LGUI(KC_0),    LGUI(KC_BSPC),
   LGUI(KC_TAB),  LGUI(KC_Q),    LGUI(KC_W),    LGUI(KC_F),    LGUI(KC_P),    LGUI(KC_B),    LGUI(KC_J),    LGUI(KC_L),    LGUI(KC_U),    LGUI(KC_Y),    LGUI(KC_SCLN), LGUI(KC_DEL),
-  LGUI(KC_ESC),  LGUI(KC_A),    LGUI(KC_R),    LGUI(KC_S),    LGUI(KC_T),    LGUI(KC_G),    LGUI(KC_M),    LGUI(KC_N),    LGUI(KC_E),    LGUI(KC_I),    LGUI(KC_O),    LGUI(KC_QUOT),
+  KC_LSFT,       LGUI(KC_A),    LGUI(KC_R),    LGUI(KC_S),    LGUI(KC_T),    LGUI(KC_G),    LGUI(KC_M),    LGUI(KC_N),    LGUI(KC_E),    LGUI(KC_I),    LGUI(KC_O),    LGUI(KC_QUOT),
   LGUI(KC_LSFT), LGUI(KC_Z),    LGUI(KC_X),    LGUI(KC_C),    LGUI(KC_D),    LGUI(KC_V),    LGUI(KC_K),    LGUI(KC_H),    LGUI(KC_COMM), LGUI(KC_DOT),  LGUI(KC_SLSH), LGUI(KC_RSFT),
   _______,  _______, _______, _______, _______, _______, _______,  _______, _______, _______, _______, _______
 ),
