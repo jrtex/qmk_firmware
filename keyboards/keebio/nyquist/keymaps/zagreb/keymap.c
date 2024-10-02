@@ -63,8 +63,8 @@ const uint16_t PROGMEM combo_pipe[] = {KC_M, KC_J, COMBO_END};
 const uint16_t PROGMEM combo_clos[] = {KC_Q, KC_W, COMBO_END};
 const uint16_t PROGMEM combo_escp[] = {KC_W, KC_F, COMBO_END};
 
-const uint16_t PROGMEM combo_copy[] = {KC_X, KC_C, COMBO_END};
-const uint16_t PROGMEM combo_past[] = {KC_C, KC_V, COMBO_END};
+const uint16_t PROGMEM combo_copy[] = {ALT_X, CTL_C, COMBO_END};
+const uint16_t PROGMEM combo_past[] = {CTL_C, KC_V, COMBO_END};
 // const uint16_t PROGMEM combo_cut[]  = {KC_N, KC_E, COMBO_END};
 
 const uint16_t PROGMEM combo_all[]  = {KC_A, KC_R, COMBO_END};
