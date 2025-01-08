@@ -50,7 +50,6 @@ enum custom_keycodes {
 
 #define NUM_TAB LT(_NUM, KC_TAB)
 #define NAV_SPC LT(_NAV, KC_SPC)
-#define SHFTFUN LT(_FUN, OSM(MOD_LSFT))
 
 #define ENT_WM1 LT(_KOM, KC_ENT)
 
@@ -137,7 +136,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LSFT,    GUI_Z,   ALT_X,   CTRL_C,  SHFT_D,  KC_V,                         KC_K,    SHFT_H,  CTRL_CM, ALT_DOT, GUI_SLS, KC_RSFT,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                         KC_LGUI, NUM_TAB, NAV_SPC,    ENT_WM1,  SHFTFUN, OSM(MOD_LSFT)
+                                         KC_LGUI, NUM_TAB, NAV_SPC,    ENT_WM1, OSM(MOD_LSFT), OSL(_FUN)
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -161,7 +160,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LSFT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE, KC_TILD,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LGUI,   MO(3), _______,   MO(_KOM2), SHFTFUN, KC_RALT
+                                          KC_LGUI,   MO(3), _______,   MO(_KOM2), CW_TOGG, KC_RALT
                                       //`--------------------------'  `--------------------------'
   ),
 
