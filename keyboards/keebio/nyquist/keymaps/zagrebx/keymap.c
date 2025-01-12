@@ -48,7 +48,7 @@ const uint16_t PROGMEM combo_dquo[] = {KC_I, KC_O, COMBO_END};
 const uint16_t PROGMEM combo_undr[] = {KC_M, KC_N, COMBO_END};
 const uint16_t PROGMEM combo_equa[] = {KC_N, KC_E, KC_I, COMBO_END};
 
-const uint16_t PROGMEM combo_excl[] = {KC_L, KC_U, COMBO_END};
+const uint16_t PROGMEM combo_excl[] = {KC_L, KC_U, COMBO_END}
 const uint16_t PROGMEM combo_qust[] = {KC_U, KC_Y, COMBO_END};
 const uint16_t PROGMEM combo_semi[] = {KC_L, KC_Y, COMBO_END};
 const uint16_t PROGMEM combo_tild[] = {KC_J, KC_L, COMBO_END};
@@ -116,11 +116,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | Tab  |   Q  |   W  |   F  |   P  |   B  |   J  |   L  |   U  |   Y  |   ;  | Del  |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * | Esc  |   A  |   R  |   S  |   T  |   G  |   M  |   N  |   E  |   I  |   O  |  "   |
+ * | Esc  |   A  |   R  |   S  |   T  |   G  |   M  |   N  |   E  |   I  |   O  | ' "  |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * | Shift|   Z  |   X  |   C  |   D  |   V  |   K  |   H  |   ,  |   .  |   /  |Enter |
+ * | Shift|   Z  |   X  |   C  |   D  |   V  |   K  |   H  |   ,  |   .  |   /  |RShft |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |Adjust| Ctrl | Alt  | GUI  |Lower |Space |Space |Raise | Left | Down |  Up  |Right |
+ * |Adjust| Ctrl | Alt  | GUI  |Numb. |Space |Enter |Funct.| Ctl  | RAlt | GUI  | Rght |
  * `-----------------------------------------------------------------------------------'
  */
 [_COLEMAK] = LAYOUT_ortho_5x12(
