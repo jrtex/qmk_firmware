@@ -25,7 +25,7 @@ enum layer_names {
     _NAV,
     _MED,
     _KOM,
-    _KOM2
+    _KOM2,
 };
 
 enum custom_keycodes {
@@ -206,7 +206,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX, S(A(KC_A)), S(A(KC_R)), S(A(KC_S)), S(A(KC_T)), S(A(KC_G)),      S(A(KC_M)), S(A(KC_N)), S(A(KC_E)), S(A(KC_I)), S(A(KC_O)), KC_QUOT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, S(A(KC_Z)), S(A(KC_X)), S(A(KC_C)), S(A(KC_D)), S(A(KC_V)),      S(A(KC_K)), S(A(KC_H)), S(A(KC_COMM)), S(A(KC_DOT)), S(A(KC_SLSH), XXXXXXX,
+      XXXXXXX, S(A(KC_Z)), S(A(KC_X)), S(A(KC_C)), S(A(KC_D)), S(A(KC_V)),      S(A(KC_K)), S(A(KC_H)), S(A(KC_COMM)), S(A(KC_DOT)), S(A(KC_SLSH)), XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                          XXXXXXX, XXXXXXX, _______,     _______,  XXXXXXX, XXXXXXX
                                       //`--------------------------'  `--------------------------'
