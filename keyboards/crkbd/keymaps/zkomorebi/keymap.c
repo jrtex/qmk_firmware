@@ -136,7 +136,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LSFT,    GUI_Z,   ALT_X,   CTRL_C,  SHFT_D,  KC_V,                         KC_K,    SHFT_H,  CTRL_CM, ALT_DOT, GUI_SLS, KC_RSFT,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                         KC_LGUI, NUM_TAB, NAV_SPC,    ENT_WM1, OSM(MOD_LSFT), OSL(_FUN)
+                                         KC_LGUI, NUM_TAB, NAV_SPC,    ENT_WM1, MO(_FUN),  OSM(MOD_LSFT)
                                       //`--------------------------'  `--------------------------'
   ),
 
